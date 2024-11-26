@@ -1,0 +1,41 @@
+﻿@model IEnumerable<examen.Models.DetalleReparacion>
+
+@{
+    ViewData["Title"] = "Gestión de Detalles de Reparación";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Gestión de Detalles de Reparación</h2>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary mb-3">Crear Nuevo Detalle</a>
+    </p>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+                <th>@Html.DisplayNameFor(model => model.FechaInicio)</th>
+                <th>@Html.DisplayNameFor(model => model.FechaFin)</th>
+                <th>Reparación</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FechaInicio)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FechaFin)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Reparacion.Descripcion)</td> <!-- Mostrar descripción de la reparación -->
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.DetalleID" class="btn btn-warning btn-sm">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.DetalleID" class="btn btn-info btn-sm">Detalles</a>
+                        <a asp-action="Delete" asp-route-id="@item.DetalleID" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<examen.Models.Asignacion>
+
+@{
+    ViewData["Title"] = "Asignaciones";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Gestión de Asignaciones</h2>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary mb-3">Crear Nueva Asignación</a>
+    </p>
+
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FechaAsignacion)</th>
+                <th>Reparación</th>
+                <th>Técnico</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.FechaAsignacion)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Reparacion.ReparacionID)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Tecnico.Nombre)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.AsignacionID" class="btn btn-warning btn-sm">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.AsignacionID" class="btn btn-info btn-sm">Detalles</a>
+                        <a asp-action="Delete" asp-route-id="@item.AsignacionID" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

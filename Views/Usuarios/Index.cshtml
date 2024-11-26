@@ -1,0 +1,39 @@
+﻿@model IEnumerable<examen.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center">Gestión de Usuarios</h2>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary mb-3">Crear Nuevo Usuario</a>
+    </p>
+
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.CorreoElectronico)</th>
+                <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CorreoElectronico)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.UsuarioID" class="btn btn-warning btn-sm">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.UsuarioID" class="btn btn-info btn-sm">Detalles</a>
+                        <a asp-action="Delete" asp-route-id="@item.UsuarioID" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

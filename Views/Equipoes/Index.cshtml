@@ -1,0 +1,39 @@
+﻿@model IEnumerable<examen.Models.Equipo>
+
+@{
+    ViewData["Title"] = "Gestión de Equipos";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Gestión de Equipos</h2>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary mb-3">Crear Nuevo Equipo</a>
+    </p>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.TipoEquipo)</th>
+                <th>@Html.DisplayNameFor(model => model.Modelo)</th>
+                <th>Usuario</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.TipoEquipo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Modelo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Usuario.Nombre)</td> <!-- Muestra el nombre del usuario -->
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.EquipoID" class="btn btn-warning btn-sm">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.EquipoID" class="btn btn-info btn-sm">Detalles</a>
+                        <a asp-action="Delete" asp-route-id="@item.EquipoID" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

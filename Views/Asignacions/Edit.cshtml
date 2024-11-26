@@ -1,0 +1,44 @@
+﻿@model examen.Models.Asignacion
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Asignacion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AsignacionID" />
+            <div class="form-group">
+                <label asp-for="FechaAsignacion" class="control-label"></label>
+                <input asp-for="FechaAsignacion" class="form-control" />
+                <span asp-validation-for="FechaAsignacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReparacionID" class="control-label"></label>
+                <select asp-for="ReparacionID" class="form-control" asp-items="ViewBag.ReparacionID"></select>
+                <span asp-validation-for="ReparacionID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TecnicoID" class="control-label"></label>
+                <select asp-for="TecnicoID" class="form-control" asp-items="ViewBag.TecnicoID"></select>
+                <span asp-validation-for="TecnicoID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

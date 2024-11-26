@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Bienvenido al Sistema de Gestión de Reparaciones</h2>
+
+    <div class="row">
+        <!-- Tarjeta para Usuarios -->
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-header bg-primary text-white">
+                    Usuarios
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Gestión de Usuarios</h5>
+                    <p class="card-text">Crea, edita y administra los usuarios registrados.</p>
+                    <a asp-controller="Usuarios" asp-action="Index" class="btn btn-primary">Ir a Usuarios</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta para Equipos -->
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-header bg-secondary text-white">
+                    Equipos
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Gestión de Equipos</h5>
+                    <p class="card-text">Administra los equipos asociados a los usuarios.</p>
+                    <a asp-controller="Equipoes" asp-action="Index" class="btn btn-secondary">Ir a Equipos</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta para Técnicos -->
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-header bg-success text-white">
+                    Técnicos
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Gestión de Técnicos</h5>
+                    <p class="card-text">Administra los técnicos asignados a las reparaciones.</p>
+                    <a asp-controller="Tecnicoes" asp-action="Index" class="btn btn-success">Ir a Técnicos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Tarjeta para Reparaciones -->
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-header bg-danger text-white">
+                    Reparaciones
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Gestión de Reparaciones</h5>
+                    <p class="card-text">Gestiona las reparaciones en proceso o finalizadas.</p>
+                    <a asp-controller="Reparacions" asp-action="Index" class="btn btn-danger">Ir a Reparaciones</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta para Asignaciones -->
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-header bg-info text-white">
+                    Asignaciones
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Gestión de Asignaciones</h5>
+                    <p class="card-text">Visualiza y administra las asignaciones de técnicos.</p>
+                    <a asp-controller="Asignacions" asp-action="Index" class="btn btn-info">Ir a Asignaciones</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
